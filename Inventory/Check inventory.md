@@ -1,6 +1,6 @@
 # Check Inventory API
 
-Get the stock details of the product on the specific locations. To get the stock details, you will need to call the `/checkInventory` endpoint with the GET method. 
+Get the stock details of the product on the specific locations. To get the stock details, you will need to call the `/checkInventory` endpoint with the POST method. 
 
 ## Request
 
@@ -16,9 +16,14 @@ Content-Type: application/json
 ### Body
 ```
 {
+  "fieldsToSelect": ["<fields>"],
+  "viewSize": "<view size>",
+  "viewIndex": "<view index>",
   "filters": {
-    "sku": "MSH02-32-Black",
-    "facilityId": "STORE_7"
+    "sku": ["<sku1>", "<sku2>", "<sku>"],
+    "sku_op": "in",
+    "facilityId": ["<facilityId1>", "<facilityId2>"],
+    "facilityId_op": "in"
   }
 }
 ```
@@ -26,10 +31,17 @@ Content-Type: application/json
 | Parameter Name | Description | Required (Y/N) |
 | --- | --- | --- |
 | `sku` | The SKU of the product | N |
+| `sku_op` | The operator | N |
+| `fieldsToSelect` | The fields that you want to select or retrieve in your query results. | N |
+| `viewSize` |  The size of items to be displayed in a single view  | N |
+| `viewIndex` | The index of the current view | N |
 | `productId` | HotWax Commerce internal product Id | N |
+| `productId_op` | The operator | N |
 | `facilityId` | The HotWax Commerce facility Id where product inventory is located | N |
 
-Note: It is required to pass either `sku` or `productId`. 
+Note: 
+<li>It is required to pass either `sku` or `productId`. </li>
+<li>Search limit = 100 items </li>
 
 
 ## Response
