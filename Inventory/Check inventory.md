@@ -16,11 +16,11 @@ Content-Type: application/json
 ### Body
 ```
 {
-  "fieldsToSelect": ["<fields>"],
+  "fieldsToSelect": "<fields>",
   "viewSize": "<view size>",
   "viewIndex": "<view index>",
   "filters": {
-    "sku": ["<sku1>", "<sku2>", "<sku>"],
+    "sku": "<sku1>", "<sku2>", "<sku>",
     "sku_op": "in",
     "facilityId": ["<facilityId1>", "<facilityId2>"],
     "facilityId_op": "in"
@@ -60,8 +60,9 @@ Content-Type: application/json
   "count": "1",
   "docs": [
     {
-      "facilityId": "STORE_7",
-      "atp": 1.000000
+      "productId": "<product ID>",
+      "facilityId": "<faciltiy ID>",
+      "atp": "<atp>"
     }
   ]
 }
